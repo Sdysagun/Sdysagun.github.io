@@ -10,19 +10,33 @@
       align-items: center;
       height: 100vh;
     }
+    .profile-box {
+      background-color: white;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      background-color: #050A30;
+    }
     .profile-info {
       text-align: center;
+    }
+    .profile-info p {
+      margin: 8px 0;
     }
   </style>
 </head>
 <body>
-  <div class="profile-info">
-    <h2>User Profile</h2>
-    <p><strong>First Name:</strong> <span id="firstName"></span></p>
-    <p><strong>Last Name:</strong> <span id="lastName"></span></p>
-    <p><strong>Email:</strong> <span id="email"></span></p>
-    <p><strong>Contact Number:</strong> <span id="contactNumber"></span></p>
-    <p><strong>Birthdate:</strong> <span id="birthdate"></span></p>
+  <div class="profile-box">
+    <div class="profile-info">
+      <h2>User Profile</h2>
+      <p><strong>First Name:</strong> <span id="firstName"></span></p>
+      <p><strong>Last Name:</strong> <span id="lastName"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+      <p><strong>Contact Number:</strong> <span id="contactNumber"></span></p>
+      <p><strong>Birthdate:</strong> <span id="birthdate"></span></p>
+    </div>
   </div>
 
   <script>

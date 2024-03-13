@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Profile</title>
+  <style>
+    body {
+      background-image: url(background.png);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .update-form {
+      background-color: white;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: #050A30;
+      opacity: 0.8;
+    }
+    .update-form input[type="text"],
+    .update-form input[type="date"],
+    .update-form input[type="tel"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .update-form input[type="submit"] {
+      background-color: #050A30;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="update-form">
+    <h2>Update Profile</h2>
+    <form id="updateForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      <label for="contactNumber">Contact Number:</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required>
+      <label for="birthdate">Birthdate:</label>
+      <input type="date" id="birthdate" name="birthdate" required>
+      <input type="submit" value="Update">
+    </form>
+  </div>
+
+  <script>
+    // Populate input fields with current user information
+    let userInfo = JSON.parse(sessionStorage.getItem("user-info"));
+    if (userInfo) {
+      document.getElementById("firstName").value = userInfo.firstname;
+      document.getElementById("lastName").value = userInfo.lastname;
+      document.getElementById("contactNumber").value = userInfo.contact;
+      document.getElementById("birthdate").value = userInfo.birthdate;
+    }
+
+    // Handle form submission
+    document.getElementById("updateForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Gather updated user information from form
+      let updatedUserInfo = {
+        firstname: document.getElementById("firstName").value,
+        lastname: document.getElementById("lastName").value,
+        contact: document.getElementById("contactNumber").value,
+        birthdate: document.getElementById("birthdate").value
+      };
+      // Save updated user information to sessionStorage
+      sessionStorage.setItem("user-info", JSON.stringify(updatedUserInfo));
+      // Redirect to profile.html after updating
+      window.location.href = "profile.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Email</title>
+  <style>
+    body {
+      background-image: url(background.png);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .update-form {
+      background-color: white;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: #050A30;
+      opacity: 0.8;
+    }
+    .update-form input[type="email"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .update-form input[type="submit"] {
+      background-color: #050A30;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="update-form">
+    <h2>Update Email</h2>
+    <form id="updateEmailForm">
+      <label for="newEmail">New Email:</label>
+      <input type="email" id="newEmail" name="newEmail" required>
+      <input type="submit" value="Update">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("updateEmailForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Gather updated email from form
+      let newEmail = document.getElementById("newEmail").value;
+      // Store the updated email in session storage
+      sessionStorage.setItem("updated-email", newEmail);
+      // Redirect back to home.html after updating
+      window.location.href = "home.html";
+    });
+  </script>
+  
+  
+  
+</body>
+</html>

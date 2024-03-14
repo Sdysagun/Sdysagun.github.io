@@ -37,7 +37,7 @@
                 Dropdown
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Update Email</a></li>
+                <li><a class="dropdown-item" href="update_email.html">Update Email</a></li>
                 <li><a class="dropdown-item" href="#">Update Password</a></li>
                 <li><a class="dropdown-item" href="update_profile.html">Update My Personal Information</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -95,7 +95,16 @@
             window.location.href = 'login.html'
 
         else{
-          alert(`User with email "${UserCreds.email}" logged in. Welcome ${UserInfo.firstname} ${UserInfo.lastname}!`);
+          document.getElementById("email").textContent = UserCreds.email;
+          document.getElementById("firstname").textContent = UserInfo.firstname;
+          document.getElementById("lastname").textContent = UserInfo.lastname;
+          // Check if there is an updated email stored in session storage
+          let updatedEmail = sessionStorage.getItem("updated-email");
+          if (updatedEmail) {
+            document.getElementById("email").textContent = updatedEmail;
+          } else {
+            document.getElementById("email").textContent = UserCreds.email;
+          }
         } 
       }
 
